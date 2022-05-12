@@ -60,7 +60,7 @@ function unicornClicked(e) {
     if (currentImage > 3) {
       currentImage = 0
 
-      alert(clickd.id + 'is full')
+      alert(clickd.id + ' is full')
     }
   }
   // console.log(currentImage)
