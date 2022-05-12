@@ -5,14 +5,10 @@
 console.log('Dress The Clown!')
 let Index = 0
 var clothingIndex = 0
-console.log(clothingIndex)
+//console.log(clothingIndex)
 let head = document.getElementById('head')
 let body = document.getElementById('body')
 let feet = document.getElementById('feet')
-
-//document.addEventListener('keydown', changeClownHead(e))
-
-//head.onkeydown = changeClownHead
 
 document.addEventListener('keydown', function (e) {
   //console.log(e.key)
@@ -39,32 +35,32 @@ document.addEventListener('keydown', function (e) {
   }
 })
 
-// function zero(index1, limit) {
+// function zero(index1, limit, set) {
 //   if (index1 > limit) {
-//     index1 = 0
+//     index1 = set
 //   }
 // }
 
 function changeClothes() {
   Index++
-  changeClothingIndex()
-  //head.src = './images/head' + Index + '.png'
 
   if (Index > 5) {
     Index = 0
   }
   console.log('Index: ' + Index)
+  //zero(Index, 5, 0)
+  changeClothingIndex()
 }
 
 function reverseChangeClothes() {
-  --Index
-  changeClothingIndex()
-  //head.src = './images/head' + Index + '.png'
+  Index--
 
-  if (Index <= 0) {
+  if (Index < 0) {
     Index = 5
   }
   console.log('Index: ' + Index)
+  //zero(0,Index, 5)
+  changeClothingIndex()
 }
 
 function changeClothingIndex() {
