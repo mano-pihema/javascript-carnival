@@ -3,9 +3,9 @@
 // -    -   -   -   -  //
 
 console.log('Dress The Clown!')
-let headIndex = 0
-var clothingIndex = [0, 1, 2]
-
+let Index = 0
+var clothingIndex = 0
+console.log(clothingIndex)
 let head = document.getElementById('head')
 let body = document.getElementById('body')
 let feet = document.getElementById('feet')
@@ -17,47 +17,64 @@ let feet = document.getElementById('feet')
 document.addEventListener('keydown', function (e) {
   //console.log(e.key)
   if (e.key === 'ArrowRight') {
-    changeClownHead()
+    changeClothes()
   }
   if (e.key === 'ArrowLeft') {
-    reverseChangeClownHead()
+    reverseChangeClothes()
   }
   if (e.key === 'ArrowUp') {
     clothingIndex++
+    Index = 0
+    if (clothingIndex > 2) {
+      clothingIndex = 0
+    }
+    console.log('clothing Index: ' + clothingIndex)
   } else if (e.key === 'ArrowDown') {
     clothingIndex--
+    Index = 0
+    if (clothingIndex < 0) {
+      clothingIndex = 2
+    }
+    console.log('clothing Index: ' + clothingIndex)
   }
 })
 
-function changeClownHead() {
-  headIndex++
+// function zero(index1, limit) {
+//   if (index1 > limit) {
+//     index1 = 0
+//   }
+// }
 
-  head.src = './images/head' + headIndex + '.png'
-  if (headIndex > 5) {
-    headIndex = 0
+function changeClothes() {
+  Index++
+  changeClothingIndex()
+  //head.src = './images/head' + Index + '.png'
+
+  if (Index > 5) {
+    Index = 0
   }
-  console.log(headIndex)
+  console.log('Index: ' + Index)
 }
 
-function reverseChangeClownHead() {
-  --headIndex
+function reverseChangeClothes() {
+  --Index
+  changeClothingIndex()
+  //head.src = './images/head' + Index + '.png'
 
-  head.src = './images/head' + headIndex + '.png'
-
-  if (headIndex <= 0) {
-    headIndex = 6
+  if (Index <= 0) {
+    Index = 5
   }
-  console.log(headIndex)
+  console.log('Index: ' + Index)
 }
 
-function changeClothing() {
+function changeClothingIndex() {
   if (clothingIndex == 0) {
-    head.src = './images/head' + headIndex + '.png'
+    head.src = './images/head' + Index + '.png'
   }
   if (clothingIndex == 1) {
-    head.src
+    body.src = './images/body' + Index + '.png'
   }
   if (clothingIndex == 2) {
-    head.src
+    feet.src = './images/shoes' + Index + '.png'
   }
 }
